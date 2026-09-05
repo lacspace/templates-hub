@@ -8,7 +8,7 @@ import { TEMPLATES, STATS } from "./lib/data";
 const HOME_LD = graph(
   softwareApp({
     name: "create-lacspace-app",
-    description: "Scaffold a finished Next.js app from 8 templates in ~0.15s.",
+    description: "Scaffold a finished Next.js app from 8 templates in ~0.12s.",
     operatingSystem: "Web, Node.js",
     category: "DeveloperApplication",
     price: 0,
@@ -35,7 +35,7 @@ const WHY = [
   },
   {
     icon: "⚡",
-    title: "Scaffolded in ~0.15s",
+    title: "Scaffolded in ~0.12s",
     body: "One command writes 70+ files: a running Next.js 15 + React 19 + Tailwind v4 app you can deploy immediately.",
   },
 ];
@@ -73,7 +73,7 @@ export default function Home() {
             <p className="sub">
               Eight production-ready Next.js apps — every page filled, SEO wired,
               security headers on. Each one is scaffolded in{" "}
-              <strong style={{ color: "var(--fg)" }}>~0.15s</strong> by{" "}
+              <strong style={{ color: "var(--fg)" }}>~0.12s</strong> by{" "}
               <span className="mono">create-lacspace-app</span>. Click any card
               and land inside a real, running app.
             </p>
