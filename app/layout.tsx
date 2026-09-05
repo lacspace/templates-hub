@@ -17,9 +17,10 @@ const body = Inter({
 
 export const metadata: Metadata = {
   metadataBase: new URL(site.config.url),
+  // site.page() already brands each title; a template here would double it.
   title: {
     default: "Lacspace Templates — 8 production-ready Next.js apps, live",
-    template: "%s · Lacspace Templates",
+    template: "%s",
   },
   description: site.config.description,
   applicationName: "Lacspace Templates",
