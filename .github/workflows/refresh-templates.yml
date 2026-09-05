@@ -1,0 +1,47 @@
+name: Refresh live templates
+
+# Re-scaffolds every demo zone with the latest create-lacspace-app and redeploys
+# it, so a new @lacspace/* release flows into the live templates automatically.
+on:
+  schedule:
+    - cron: "0 6 * * 1" # every Monday 06:00 UTC
+  workflow_dispatch: {} # or run it by hand from the Actions tab
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        template:
+          [personal, business, ecommerce, saas, blog, docs, dashboard, restaurant]
+    steps:
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Scaffold the ${{ matrix.template }} template (latest CLI)
+        run: |
+          dir="lacspace-demo-${{ matrix.template }}"
+          npx --yes create-lacspace-app@latest "$dir" \
+            --template "${{ matrix.template }}" --no-install --no-git -y
+          # serve under /<template> (Multi-Zones basePath)
+          node -e '
+            const fs=require("fs"), t=process.argv[1];
+            const p=t+"/next.config.mjs"; let s=fs.readFileSync(p,"utf8");
+            if(!s.includes("basePath")) s=s.replace("const nextConfig = {",
+              "const nextConfig = {\n  basePath: \"/"+t.replace("lacspace-demo-","")+"\",");
+            fs.writeFileSync(p,s);
+          ' "$dir"
+
+      - name: Deploy to Vercel
+        env:
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+        run: |
+          dir="lacspace-demo-${{ matrix.template }}"
+          cd "$dir"
+          npx --yes vercel@latest link --yes --project "$dir" \
+            --scope lacspacecorp --token "$VERCEL_TOKEN"
+          npx --yes vercel@latest --prod --yes \
+            --scope lacspacecorp --token "$VERCEL_TOKEN"
