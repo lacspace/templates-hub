@@ -83,6 +83,15 @@ export const TEMPLATES: Template[] = [
     desc: "Menu, reservations, gallery, and private events. A warm, appetite-first site that's ready to book.",
     pages: ["Home", "Menu", "Reservations", "Gallery", "Events", "About"],
   },
+  {
+    key: "marketplace",
+    name: "Marketplace",
+    emoji: "🛒",
+    grad: "linear-gradient(135deg,#0d9488,#6366f1)",
+    tagline: "Cart, checkout & payments — wired",
+    desc: "A real storefront wired to the Lacspace commerce packages: cart, tax, shipping, orders, invoices and Nepal payments. Not a mock — a working checkout.",
+    pages: ["Home", "Shop", "Product", "Cart", "Checkout", "Success"],
+  },
 ];
 
 export type Kit = {

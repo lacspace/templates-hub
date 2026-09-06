@@ -15,6 +15,7 @@ const TEMPLATES = [
   "docs",
   "dashboard",
   "restaurant",
+  "marketplace",
 ];
 
 /** @type {import('next').NextConfig} */
