@@ -127,12 +127,12 @@ export default function Home() {
         {/* Templates */}
         <section id="templates" className="sec">
           <Reveal className="sec-head center">
-            <div className="eyebrow">Live gallery</div>
-            <h2>Open one live</h2>
+            <div className="eyebrow">The gallery</div>
+            <h2>{TEMPLATES.length} finished apps</h2>
             <p>
-              Each template is its own deployment, served right here under this
-              domain — no dead <span className="mono">*.vercel.app</span> demos.
-              What you see is exactly what one command writes to disk.
+              Open any template for the full breakdown — what&apos;s inside, the
+              pages you get, a live preview and the one command to scaffold it.
+              Each one is a real deployment you can open live, too.
             </p>
           </Reveal>
 
@@ -140,8 +140,8 @@ export default function Home() {
             {TEMPLATES.map((t, i) => (
               <Reveal key={t.key} delay={(i % 3) * 60} className="card">
                 <a
-                  href={`/${t.key}`}
-                  aria-label={`Open the ${t.name} template`}
+                  href={`/templates/${t.key}`}
+                  aria-label={`View the ${t.name} template`}
                   style={{ position: "absolute", inset: 0, zIndex: 2 }}
                 />
                 <div className="swatch">
@@ -166,7 +166,7 @@ export default function Home() {
                   ))}
                 </div>
                 <span className="open">
-                  Open live <span className="arrow">↗</span>
+                  View template <span className="arrow">→</span>
                 </span>
               </Reveal>
             ))}

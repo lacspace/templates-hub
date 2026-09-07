@@ -6,6 +6,10 @@ export type Template = {
   emoji: string;
   tagline: string;
   desc: string;
+  /** Longer, detail-page intro (2–3 sentences). */
+  intro: string;
+  /** "What's inside" — template-specific highlights. */
+  inside: { t: string; d: string }[];
   pages: string[];
 };
 
@@ -16,6 +20,14 @@ export const TEMPLATES: Template[] = [
     emoji: "👤",
     tagline: "Portfolio & developer presence",
     desc: "Projects, uses, work history, about, and a real Markdown blog. Ship your presence in minutes.",
+    intro:
+      "A complete personal site for developers and makers — your work, your writing and your story, all filled in and ready to edit. Swap the copy for yours and you have a portfolio you'd actually be proud to link.",
+    inside: [
+      { t: "Project showcase", d: "A filterable grid of projects with tags, links and case-study detail pages." },
+      { t: "A real Markdown blog", d: "Posts written as .md files with BlogPosting JSON-LD, topic pages and reading time." },
+      { t: "Work & uses pages", d: "A timeline work history and a /uses page for your gear and software stack." },
+      { t: "About & contact", d: "A personal about page and a typed, honeypot-protected contact form." },
+    ],
     pages: ["Home", "Projects", "Work", "Uses", "Blog", "About", "Contact"],
   },
   {
@@ -24,6 +36,14 @@ export const TEMPLATES: Template[] = [
     emoji: "🏢",
     tagline: "Agency & company site",
     desc: "Services, case-study work, pricing, and a team grid. Corporate, without the corporate-boring.",
+    intro:
+      "A polished company site for an agency, studio or SMB — services, proof, pricing and team, structured the way buyers actually read. Corporate credibility without the corporate boredom.",
+    inside: [
+      { t: "Services & work", d: "A services grid plus case-study work pages that show outcomes, not just logos." },
+      { t: "Pricing tiers", d: "A clear pricing table with feature rows, ready to wire to a checkout." },
+      { t: "Team grid", d: "Head-shots, roles and bios in a responsive team section." },
+      { t: "Lead capture", d: "A validated contact form with spam honeypot, ready for your inbox or CRM." },
+    ],
     pages: ["Home", "Services", "Work", "Pricing", "Team", "About", "Contact"],
   },
   {
@@ -32,6 +52,14 @@ export const TEMPLATES: Template[] = [
     emoji: "🛍️",
     tagline: "Storefront with a working cart",
     desc: "Product grid, collections, and a persisted cart. From browse to checkout intent, prebuilt.",
+    intro:
+      "A storefront that already works — browse products, filter collections and add to a cart that survives a refresh. Everything from the shelf to checkout intent is built, so you only plug in your catalogue and payments.",
+    inside: [
+      { t: "Product & collections", d: "A responsive product grid, collection pages and rich product detail views." },
+      { t: "A persisted cart", d: "Add / update / remove with quantities, saved to storage so it survives reloads." },
+      { t: "Money done right", d: "Prices in integer minor units via @lacspace/money — no floating-point rounding bugs." },
+      { t: "Checkout intent", d: "A cart summary and checkout hand-off, ready to connect to your payment provider." },
+    ],
     pages: ["Home", "Shop", "Collections", "Product", "Cart", "About", "Contact"],
   },
   {
@@ -40,6 +68,14 @@ export const TEMPLATES: Template[] = [
     emoji: "🚀",
     tagline: "Product landing page",
     desc: "Feature splits, a pricing table, integrations, and a changelog. The classic launch page, finished.",
+    intro:
+      "The classic product launch page, finished end to end — hero, feature splits, pricing, integrations and a changelog. The page you'd otherwise rebuild for every product, ready on the first render.",
+    inside: [
+      { t: "Feature storytelling", d: "Alternating feature splits with visuals that explain the product, not just list it." },
+      { t: "Pricing table", d: "Monthly / annual tiers with a highlighted plan and feature comparison." },
+      { t: "Integrations", d: "A logo wall and integrations grid to show what your product connects to." },
+      { t: "Changelog", d: "A dated changelog page so you can ship-in-public from day one." },
+    ],
     pages: ["Home", "Features", "Pricing", "Integrations", "Changelog", "About"],
   },
   {
@@ -48,6 +84,14 @@ export const TEMPLATES: Template[] = [
     emoji: "✍️",
     tagline: "A real Markdown blog",
     desc: "Posts from files, topic pages, a newsletter, and BlogPosting JSON-LD. Write and publish.",
+    intro:
+      "A genuine publishing setup, not a demo — write Markdown files and get formatted posts, topic pages, a newsletter and correct article schema for free. Everything a writer needs to hit publish.",
+    inside: [
+      { t: "Posts from Markdown", d: "Drop a .md file in and get a formatted post with front-matter, tags and reading time." },
+      { t: "Topic pages", d: "Auto-generated topic / tag pages that group related posts." },
+      { t: "Newsletter capture", d: "An email sign-up section wired to a typed, validated endpoint." },
+      { t: "Article SEO", d: "BlogPosting JSON-LD, OG images and canonical URLs on every post." },
+    ],
     pages: ["Home", "Posts", "Topics", "Post", "Newsletter", "About"],
   },
   {
@@ -56,6 +100,14 @@ export const TEMPLATES: Template[] = [
     emoji: "📚",
     tagline: "Documentation site",
     desc: "Sidebar nav, on-page TOC, prev/next, search, an API reference, and a changelog.",
+    intro:
+      "A documentation site with the ergonomics people expect — a sidebar, on-page table of contents, prev / next paging, client-side search and an API reference. Point it at your content and you have real docs.",
+    inside: [
+      { t: "Sidebar + TOC", d: "A collapsible sidebar and an on-page table of contents that tracks your scroll." },
+      { t: "Client-side search", d: "Instant, keyboard-friendly search across every guide — no external service." },
+      { t: "API reference", d: "A structured reference layout for endpoints, params and examples." },
+      { t: "Prev / next & changelog", d: "Sequential paging between guides plus a dated changelog page." },
+    ],
     pages: ["Home", "Guides", "API Reference", "Changelog", "Search"],
   },
   {
@@ -64,6 +116,14 @@ export const TEMPLATES: Template[] = [
     emoji: "📊",
     tagline: "App shell & admin",
     desc: "Sidebar, stat cards, charts, analytics, and settings. The inside of a product, prebuilt.",
+    intro:
+      "The inside of a product, prebuilt — a real app shell with a sidebar, stat cards, charts and settings. Skip the boilerplate of laying out an admin and start on your actual features.",
+    inside: [
+      { t: "App shell", d: "A persistent sidebar, top bar and responsive content area with a dark / light toggle." },
+      { t: "Stat cards & charts", d: "KPI cards with trends and a dependency-free revenue chart." },
+      { t: "Data tables", d: "Customers and billing views with sortable, responsive tables." },
+      { t: "Settings", d: "A settings page with grouped, validated form sections." },
+    ],
     pages: ["Overview", "Analytics", "Customers", "Billing", "Settings"],
   },
   {
@@ -72,6 +132,14 @@ export const TEMPLATES: Template[] = [
     emoji: "🍽️",
     tagline: "Menu, bookings & events",
     desc: "Menu, reservations, gallery, and private events. A warm, appetite-first site that's ready to book.",
+    intro:
+      "A warm, appetite-first site for a restaurant or café — a real menu, a reservation flow, a gallery and a private-events page. Everything a hospitality business needs to be found and booked.",
+    inside: [
+      { t: "The menu", d: "A structured, sectioned menu with dietary tags and prices that's easy to keep current." },
+      { t: "Reservations", d: "A booking form with date, time, party size and validation, ready to wire up." },
+      { t: "Gallery", d: "A responsive image gallery to show the room, the plates and the atmosphere." },
+      { t: "Private events", d: "A dedicated page for functions and enquiries with its own lead form." },
+    ],
     pages: ["Home", "Menu", "Reservations", "Gallery", "Events", "About"],
   },
   {
@@ -80,8 +148,26 @@ export const TEMPLATES: Template[] = [
     emoji: "🛒",
     tagline: "Cart, checkout & payments — wired",
     desc: "A real storefront wired to the Lacspace commerce packages: cart, tax, shipping, orders, invoices and Nepal payments. Not a mock — a working checkout.",
+    intro:
+      "The most complete template — a working storefront wired end to end to the Lacspace commerce packages: cart, tax, shipping, orders, invoices and Nepal payment gateways. Not a mock-up of checkout, an actual checkout.",
+    inside: [
+      { t: "A real checkout", d: "Cart → shipping → tax → order, computed in integer minor units the whole way through." },
+      { t: "Commerce packages", d: "Wired to @lacspace/cart, shipping, tax, order and invoice — the real engine, not stubs." },
+      { t: "Nepal payments", d: "eSewa, Khalti, ConnectIPS and Fonepay hand-offs prebuilt via the payment packages." },
+      { t: "Order & invoice", d: "An order summary, a success page and a generated PDF invoice via @lacspace/pdf." },
+    ],
     pages: ["Home", "Shop", "Product", "Cart", "Checkout", "Success"],
   },
+];
+
+/** Baseline every generated app ships with, regardless of template. */
+export const TEMPLATE_BASELINE: { t: string; d: string }[] = [
+  { t: "SEO wired end-to-end", d: "Metadata, JSON-LD, dynamic OG images, sitemap and robots — all from one site config." },
+  { t: "Security headers", d: "A strict Content-Security-Policy and hardened HTTP headers via @lacspace/headers." },
+  { t: "Dark / light theme", d: "A no-flash theme with system, light and dark modes and a toggle." },
+  { t: "⌘K command palette", d: "A keyboard command palette for fast navigation, built in." },
+  { t: "Typed contact form", d: "FormData → validated, typed data with a spam honeypot." },
+  { t: "CI that gates on SEO", d: "A GitHub Actions workflow that fails the build on a poor SEO crawl grade." },
 ];
 
 export type Kit = {
