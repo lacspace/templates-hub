@@ -3,7 +3,7 @@
 import { useState } from "react";
 
 const LINKS = [
-  { href: "/#templates", label: "Templates" },
+  { href: "/templates", label: "Templates" },
   { href: "/#why", label: "Why" },
   { href: "https://developer.lacspace.com", label: "Docs & Handbook", external: true },
   { href: "https://lacspace.com/create-app", label: "The CLI", external: true },

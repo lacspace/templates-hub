@@ -21,7 +21,7 @@ export function SiteFooter() {
 
           <div className="foot-col">
             <h4>Templates</h4>
-            <a href="/#templates">All {TEMPLATES.length} templates</a>
+            <a href="/templates">All {TEMPLATES.length} templates</a>
             <a href="/#why">Why these</a>
             <a href="/terms">Terms of use</a>
           </div>
