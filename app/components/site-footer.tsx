@@ -1,3 +1,5 @@
+import { TEMPLATES, STATS } from "../lib/data";
+
 export function SiteFooter() {
   const year = new Date().getFullYear();
   return (
@@ -11,7 +13,7 @@ export function SiteFooter() {
               <span>Lacspace Templates</span>
             </div>
             <p>
-              Eight finished Next.js apps, live and clickable. Scaffold your own
+              {TEMPLATES.length} finished Next.js apps, live and clickable. Scaffold your own
               in one command with create-lacspace-app.
             </p>
             <span className="foot-made">Built with create-lacspace-app</span>
@@ -19,7 +21,7 @@ export function SiteFooter() {
 
           <div className="foot-col">
             <h4>Templates</h4>
-            <a href="/#templates">All 8 templates</a>
+            <a href="/#templates">All {TEMPLATES.length} templates</a>
             <a href="/#why">Why these</a>
             <a href="/terms">Terms of use</a>
           </div>
@@ -27,7 +29,7 @@ export function SiteFooter() {
           <div className="foot-col">
             <h4>Developer Platform</h4>
             <a href="https://developer.lacspace.com" target="_blank" rel="noopener">Docs &amp; handbook</a>
-            <a href="https://developer.lacspace.com" target="_blank" rel="noopener">63 packages</a>
+            <a href="https://developer.lacspace.com" target="_blank" rel="noopener">{STATS.packages} packages</a>
             <a href="https://lacspace.com/create-app" target="_blank" rel="noopener">Get the CLI</a>
           </div>
 

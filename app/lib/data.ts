@@ -4,7 +4,6 @@ export type Template = {
   key: string;
   name: string;
   emoji: string;
-  grad: string;
   tagline: string;
   desc: string;
   pages: string[];
@@ -15,7 +14,6 @@ export const TEMPLATES: Template[] = [
     key: "personal",
     name: "Personal",
     emoji: "👤",
-    grad: "linear-gradient(135deg,#6366f1,#a855f7)",
     tagline: "Portfolio & developer presence",
     desc: "Projects, uses, work history, about, and a real Markdown blog. Ship your presence in minutes.",
     pages: ["Home", "Projects", "Work", "Uses", "Blog", "About", "Contact"],
@@ -24,7 +22,6 @@ export const TEMPLATES: Template[] = [
     key: "business",
     name: "Business",
     emoji: "🏢",
-    grad: "linear-gradient(135deg,#0ea5e9,#22d3ee)",
     tagline: "Agency & company site",
     desc: "Services, case-study work, pricing, and a team grid. Corporate, without the corporate-boring.",
     pages: ["Home", "Services", "Work", "Pricing", "Team", "About", "Contact"],
@@ -33,7 +30,6 @@ export const TEMPLATES: Template[] = [
     key: "ecommerce",
     name: "Ecommerce",
     emoji: "🛍️",
-    grad: "linear-gradient(135deg,#f43f5e,#fb923c)",
     tagline: "Storefront with a working cart",
     desc: "Product grid, collections, and a persisted cart. From browse to checkout intent, prebuilt.",
     pages: ["Home", "Shop", "Collections", "Product", "Cart", "About", "Contact"],
@@ -42,7 +38,6 @@ export const TEMPLATES: Template[] = [
     key: "saas",
     name: "SaaS",
     emoji: "🚀",
-    grad: "linear-gradient(135deg,#8b5cf6,#ec4899)",
     tagline: "Product landing page",
     desc: "Feature splits, a pricing table, integrations, and a changelog. The classic launch page, finished.",
     pages: ["Home", "Features", "Pricing", "Integrations", "Changelog", "About"],
@@ -51,7 +46,6 @@ export const TEMPLATES: Template[] = [
     key: "blog",
     name: "Blog",
     emoji: "✍️",
-    grad: "linear-gradient(135deg,#10b981,#34d399)",
     tagline: "A real Markdown blog",
     desc: "Posts from files, topic pages, a newsletter, and BlogPosting JSON-LD. Write and publish.",
     pages: ["Home", "Posts", "Topics", "Post", "Newsletter", "About"],
@@ -60,7 +54,6 @@ export const TEMPLATES: Template[] = [
     key: "docs",
     name: "Docs",
     emoji: "📚",
-    grad: "linear-gradient(135deg,#f59e0b,#fbbf24)",
     tagline: "Documentation site",
     desc: "Sidebar nav, on-page TOC, prev/next, search, an API reference, and a changelog.",
     pages: ["Home", "Guides", "API Reference", "Changelog", "Search"],
@@ -69,7 +62,6 @@ export const TEMPLATES: Template[] = [
     key: "dashboard",
     name: "Dashboard",
     emoji: "📊",
-    grad: "linear-gradient(135deg,#3b82f6,#6366f1)",
     tagline: "App shell & admin",
     desc: "Sidebar, stat cards, charts, analytics, and settings. The inside of a product, prebuilt.",
     pages: ["Overview", "Analytics", "Customers", "Billing", "Settings"],
@@ -78,7 +70,6 @@ export const TEMPLATES: Template[] = [
     key: "restaurant",
     name: "Restaurant",
     emoji: "🍽️",
-    grad: "linear-gradient(135deg,#ef4444,#f97316)",
     tagline: "Menu, bookings & events",
     desc: "Menu, reservations, gallery, and private events. A warm, appetite-first site that's ready to book.",
     pages: ["Home", "Menu", "Reservations", "Gallery", "Events", "About"],
@@ -87,7 +78,6 @@ export const TEMPLATES: Template[] = [
     key: "marketplace",
     name: "Marketplace",
     emoji: "🛒",
-    grad: "linear-gradient(135deg,#0d9488,#6366f1)",
     tagline: "Cart, checkout & payments — wired",
     desc: "A real storefront wired to the Lacspace commerce packages: cart, tax, shipping, orders, invoices and Nepal payments. Not a mock — a working checkout.",
     pages: ["Home", "Shop", "Product", "Cart", "Checkout", "Success"],
@@ -101,7 +91,7 @@ export type Kit = {
   packages: { name: string; desc: string }[];
 };
 
-// Curated ecosystem — the full catalog is 63 packages on npm.
+// Curated ecosystem — the full catalog is 87 packages on npm.
 export const KITS: Kit[] = [
   {
     name: "Security Kit",
@@ -221,6 +211,6 @@ export const STATS = {
   files: "70+",
   pages: "11",
   components: "26",
-  templates: "8",
-  packages: "63",
+  templates: String(TEMPLATES.length),
+  packages: "87",
 };

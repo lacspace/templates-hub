@@ -18,12 +18,13 @@
   --faint: rgba(226, 236, 247, 0.42);
   --hairline: rgba(159, 179, 200, 0.14);
   --hairline-2: rgba(159, 179, 200, 0.24);
-  --accent-from: #0bb9d9;
-  --accent-mid: #3b82f6;
-  --accent-to: #7c3aed;
-  --accent-cta: #f97316;
-  --accent-soft: rgba(59, 130, 246, 0.14);
-  --grad: linear-gradient(100deg, #0bb9d9 0%, #3b82f6 50%, #7c3aed 100%);
+  --accent: #4d9fff;
+  --accent-from: #4d9fff;
+  --accent-mid: #4d9fff;
+  --accent-to: #4d9fff;
+  --accent-cta: #4d9fff;
+  --accent-soft: rgba(77, 159, 255, 0.12);
+  --grad: #4d9fff;
   --font-display: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
   --font-body: "Inter", ui-sans-serif, system-ui, -apple-system, sans-serif;
   --radius: 16px;
@@ -51,10 +52,7 @@ a {
   text-decoration: none;
 }
 .grad {
-  background: var(--grad);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
+  color: var(--accent);
 }
 
 .wrap {
@@ -78,11 +76,7 @@ a {
 
 /* ---- Ambient background ---- */
 .aurora {
-  position: fixed;
-  inset: 0;
-  z-index: -2;
-  overflow: hidden;
-  pointer-events: none;
+  display: none;
 }
 .aurora::before,
 .aurora::after {
@@ -116,7 +110,7 @@ a {
   background-size: 64px 64px;
   mask-image: radial-gradient(ellipse 80% 55% at 50% 0%, #000 20%, transparent 75%);
   -webkit-mask-image: radial-gradient(ellipse 80% 55% at 50% 0%, #000 20%, transparent 75%);
-  opacity: 0.5;
+  opacity: 0.28;
 }
 @keyframes float {
   to {
@@ -155,8 +149,7 @@ a {
   width: 24px;
   height: 24px;
   border-radius: 7px;
-  background: var(--grad);
-  box-shadow: 0 4px 16px rgba(124, 58, 237, 0.4);
+  background: var(--accent);
   flex: none;
 }
 .nav-links {
@@ -261,12 +254,12 @@ a {
   border: 1px solid transparent;
 }
 .btn-primary {
-  background: var(--grad);
-  color: #fff;
-  box-shadow: 0 8px 30px rgba(124, 58, 237, 0.25);
+  background: var(--fg);
+  color: #0a0e17;
 }
 .btn-primary:hover {
   transform: translateY(-2px);
+  opacity: 0.92;
 }
 .btn-ghost {
   background: var(--panel-2);
@@ -399,27 +392,37 @@ h1 {
   justify-content: center;
   font-size: 46px;
   border: 1px solid var(--hairline);
+  background: var(--bg-2);
   position: relative;
   overflow: hidden;
 }
-.card .swatch::after {
+/* faint window chrome bar so the tile reads as an app preview */
+.card .swatch::before {
   content: "";
   position: absolute;
-  inset: 0;
-  background: linear-gradient(180deg, transparent 40%, rgba(0, 0, 0, 0.32));
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 30px;
+  background: var(--panel-2);
+  border-bottom: 1px solid var(--hairline);
+}
+.card:hover .swatch {
+  border-color: var(--hairline-2);
 }
 .card .swatch .browser {
   position: absolute;
-  top: 10px;
+  top: 11px;
   left: 12px;
   display: flex;
   gap: 5px;
+  z-index: 1;
 }
 .card .swatch .browser i {
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.55);
+  background: var(--hairline-2);
 }
 .card h3 {
   font-size: 1.16rem;
@@ -484,7 +487,7 @@ h1 {
 .bench {
   border: 1px solid var(--hairline);
   border-radius: 20px;
-  background: linear-gradient(180deg, var(--panel-2), var(--panel));
+  background: var(--panel);
   overflow: hidden;
 }
 .bench table {
@@ -515,10 +518,7 @@ h1 {
   font-weight: 680;
 }
 .bench td.win b {
-  background: var(--grad);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
+  color: var(--accent);
 }
 .bench tr:last-child th,
 .bench tr:last-child td {
@@ -700,12 +700,7 @@ h1 {
   border-radius: 24px;
   padding: 56px 32px;
   text-align: center;
-  background: radial-gradient(
-      ellipse 60% 120% at 50% 0%,
-      var(--accent-soft),
-      transparent 70%
-    ),
-    var(--panel);
+  background: var(--panel);
 }
 .cta-band h2 {
   font-size: clamp(1.8rem, 4.5vw, 2.6rem);
@@ -984,8 +979,7 @@ h1, h2, h3, .sec-head h2, .cta-band h2, .brand, .stat b, .hb-body h2 {
   margin: 0 auto 22px;
   display: block;
   object-fit: contain;
-  filter: drop-shadow(0 10px 44px rgba(59, 130, 246, 0.45));
-  animation: pulse-mark 3.2s ease-in-out infinite;
+  filter: drop-shadow(0 6px 22px rgba(0, 0, 0, 0.5));
 }
 @keyframes pulse-mark {
   50% {

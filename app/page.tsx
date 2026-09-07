@@ -8,7 +8,7 @@ import { TEMPLATES, STATS } from "./lib/data";
 const HOME_LD = graph(
   softwareApp({
     name: "create-lacspace-app",
-    description: "Scaffold a finished Next.js app from 8 templates in ~0.12s.",
+    description: "Scaffold a finished Next.js app from 9 templates in ~0.12s.",
     operatingSystem: "Web, Node.js",
     category: "DeveloperApplication",
     price: 0,
@@ -60,7 +60,7 @@ export default function Home() {
           </Reveal>
           <Reveal delay={30}>
             <span className="pill">
-              <span className="live" /> 8 templates · live &amp; clickable
+              <span className="live" /> {TEMPLATES.length} templates · live &amp; clickable
             </span>
           </Reveal>
           <Reveal delay={60}>
@@ -71,7 +71,7 @@ export default function Home() {
           </Reveal>
           <Reveal delay={120}>
             <p className="sub">
-              Eight production-ready Next.js apps — every page filled, SEO wired,
+              {TEMPLATES.length} production-ready Next.js apps — every page filled, SEO wired,
               security headers on. Each one is scaffolded in{" "}
               <strong style={{ color: "var(--fg)" }}>~0.12s</strong> by{" "}
               <span className="mono">create-lacspace-app</span>. Click any card
@@ -81,7 +81,7 @@ export default function Home() {
           <Reveal delay={180}>
             <div className="cta">
               <a className="btn btn-primary" href="#templates">
-                Browse the 8 →
+                Browse the {TEMPLATES.length} →
               </a>
               <a
                 className="btn btn-ghost"
@@ -144,7 +144,7 @@ export default function Home() {
                   aria-label={`Open the ${t.name} template`}
                   style={{ position: "absolute", inset: 0, zIndex: 2 }}
                 />
-                <div className="swatch" style={{ background: t.grad }}>
+                <div className="swatch">
                   <span className="browser">
                     <i />
                     <i />
@@ -213,20 +213,15 @@ export default function Home() {
                 thing — then it&apos;s a normal Next.js app you own outright.
               </p>
               <div className="chips">
-                <span>--template personal</span>
-                <span>business</span>
-                <span>ecommerce</span>
-                <span>saas</span>
-                <span>blog</span>
-                <span>docs</span>
-                <span>dashboard</span>
-                <span>restaurant</span>
+                {TEMPLATES.map((t, i) => (
+                  <span key={t.key}>{i === 0 ? `--template ${t.key}` : t.key}</span>
+                ))}
               </div>
             </Reveal>
             <Reveal delay={80}>
               <CodeBlock
                 label="terminal"
-                code={`# scaffold any of the 8 templates
+                code={`# scaffold any of the ${TEMPLATES.length} templates
 npm create lacspace-app@latest my-app -- --template saas
 
 # add prebuilt sections anytime
@@ -242,7 +237,7 @@ cd my-app && npm run dev`}
         <Reveal className="cta-band">
           <div className="eyebrow">Part of the Lacspace Developer Platform</div>
           <h2>
-            Docs, guides &amp; 63 packages live on{" "}
+            Docs, guides &amp; {STATS.packages} packages live on{" "}
             <span className="grad">developer.lacspace.com</span>
           </h2>
           <p>
