@@ -5,3 +5,6 @@ out
 *.log
 .DS_Store
 next-env.d.ts
+
+# demo sources pulled by scripts/demos.mjs (deployed to their own Vercel projects)
+/demos
