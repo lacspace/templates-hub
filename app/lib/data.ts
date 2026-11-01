@@ -13,6 +13,14 @@ export type Template = {
   pages: string[];
 };
 
+/**
+ * Live demos run as separate Vercel projects (lacspace-demo-<key>) rewritten under /<key>.
+ * They were on the old Vercel team that went offline in Oct 2026, so they 404 until they
+ * are redeployed on the current team (scripts/demos.mjs). While false, the hub hides every
+ * "live demo" link and the sitemap leaves the /<key> URLs out. Flip to true after redeploy.
+ */
+export const DEMOS_LIVE = process.env.NEXT_PUBLIC_DEMOS_LIVE === "1";
+
 export const TEMPLATES: Template[] = [
   {
     key: "personal",

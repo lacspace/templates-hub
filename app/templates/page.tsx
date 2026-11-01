@@ -10,7 +10,7 @@ const seo = site.page({
   title: "Templates",
   path: "/templates",
   description:
-    "Browse all nine free, production-ready Next.js templates from create-lacspace-app — personal, business, ecommerce, SaaS, blog, docs, dashboard, restaurant and a fully-wired marketplace. Open a live demo or scaffold one in one command.",
+    "Browse all nine free, production-ready Next.js templates from create-lacspace-app — personal, business, ecommerce, SaaS, blog, docs, dashboard, restaurant and a fully-wired marketplace. Preview each one, then scaffold it in one command.",
   keywords: [
     "nextjs templates",
     "free nextjs templates",

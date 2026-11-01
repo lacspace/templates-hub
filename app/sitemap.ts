@@ -1,6 +1,6 @@
 import type { MetadataRoute } from "next";
 import { toNextSitemap } from "@lacspace/sitemap";
-import { TEMPLATES } from "./lib/data";
+import { DEMOS_LIVE, TEMPLATES } from "./lib/data";
 
 const BASE = "https://templates.lacspace.com";
 const LASTMOD = new Date("2026-09-07");
@@ -18,12 +18,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
         priority: 0.9,
         lastmod: LASTMOD,
       },
-      {
-        loc: `${BASE}/${t.key}`,
-        changefreq: "weekly" as const,
-        priority: 0.7,
-        lastmod: LASTMOD,
-      },
+      ...(DEMOS_LIVE
+        ? [{ loc: `${BASE}/${t.key}`, changefreq: "weekly" as const, priority: 0.7, lastmod: LASTMOD }]
+        : []),
     ]),
   ]) as MetadataRoute.Sitemap;
 }

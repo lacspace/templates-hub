@@ -5,7 +5,7 @@ import { SiteFooter } from "../../components/site-footer";
 import { Reveal } from "../../components/reveal";
 import { CodeBlock } from "../../components/code-block";
 import { site } from "../../lib/seo";
-import { TEMPLATES, TEMPLATE_BASELINE, type Template } from "../../lib/data";
+import { DEMOS_LIVE, TEMPLATES, TEMPLATE_BASELINE, type Template } from "../../lib/data";
 
 export function generateStaticParams() {
   return TEMPLATES.map((t) => ({ key: t.key }));
@@ -99,16 +99,18 @@ export default async function TemplatePage({
             </Reveal>
             <Reveal delay={180}>
               <div className="cta" style={{ justifyContent: "flex-start", marginTop: 26 }}>
-                <a className="btn btn-primary" href={`/${t.key}`}>
-                  Open the live demo ↗
-                </a>
-                <a className="btn btn-ghost" href="#scaffold">Scaffold it</a>
+                {DEMOS_LIVE ? (
+                  <a className="btn btn-primary" href={`/${t.key}`}>
+                    Open the live demo ↗
+                  </a>
+                ) : null}
+                <a className={DEMOS_LIVE ? "btn btn-ghost" : "btn btn-primary"} href="#scaffold">Scaffold it</a>
               </div>
             </Reveal>
           </div>
 
           <Reveal delay={120} className="tpl-preview">
-            <a href={`/${t.key}`} aria-label={`Open the live ${t.name} demo`}>
+            <a href={DEMOS_LIVE ? `/${t.key}` : "#scaffold"} aria-label={DEMOS_LIVE ? `Open the live ${t.name} demo` : `Scaffold the ${t.name} template`}>
               <span className="tpl-frame-bar">
                 <i /><i /><i />
                 <span className="tpl-frame-url mono">templates.lacspace.com/{t.key}</span>
@@ -171,9 +173,11 @@ export default async function TemplatePage({
                 app to disk — then it&apos;s a normal project you own outright and
                 edit however you like.
               </p>
-              <p className="tpl-note">
-                Prefer to look first? <a className="link" href={`/${t.key}`}>Open the live demo ↗</a>
-              </p>
+              {DEMOS_LIVE ? (
+                <p className="tpl-note">
+                  Prefer to look first? <a className="link" href={`/${t.key}`}>Open the live demo ↗</a>
+                </p>
+              ) : null}
             </Reveal>
             <Reveal delay={80}>
               <CodeBlock
