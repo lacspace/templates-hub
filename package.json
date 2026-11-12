@@ -5,7 +5,12 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "cf:build": "opennextjs-cloudflare build",
+    "preview": "opennextjs-cloudflare build && opennextjs-cloudflare preview",
+    "deploy": "opennextjs-cloudflare build && opennextjs-cloudflare deploy",
+    "upload": "opennextjs-cloudflare build && opennextjs-cloudflare upload",
+    "cf-typegen": "wrangler types --env-interface CloudflareEnv cloudflare-env.d.ts"
   },
   "dependencies": {
     "@lacspace/llms-txt": "^1.2.2",
@@ -16,15 +21,17 @@
     "@lacspace/sitemap": "^1.1.1",
     "@vercel/analytics": "^2.0.1",
     "@vercel/speed-insights": "^2.0.0",
-    "next": "15.5.26",
+    "next": "^15.5.29",
     "react": "19.1.0",
     "react-dom": "19.1.0"
   },
   "devDependencies": {
+    "@opennextjs/cloudflare": "^1.20.17",
     "@types/node": "20.17.6",
     "@types/react": "19.1.0",
     "@types/react-dom": "19.1.0",
-    "typescript": "5.8.2"
+    "typescript": "5.8.2",
+    "wrangler": "^4.161.0"
   },
   "overrides": {
     "postcss": "^8.5.23",

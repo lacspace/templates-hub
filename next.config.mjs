@@ -20,6 +20,7 @@ const TEMPLATES = [
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  images: { unoptimized: true }, // Cloudflare Workers: no Vercel image optimizer
   async headers() {
     return [
       {

@@ -1,7 +1,7 @@
 import { ImageResponse } from "next/og";
 import { ogCard } from "@lacspace/og";
 
-export const runtime = "edge";
+// runtime: Node.js (Cloudflare Workers via OpenNext does not support the edge runtime split)
 
 export function GET(req: Request) {
   const p = new URL(req.url).searchParams;
