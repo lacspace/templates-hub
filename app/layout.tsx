@@ -2,8 +2,6 @@ import type { Metadata } from "next";
 import { Space_Grotesk, Inter } from "next/font/google";
 import { site } from "./lib/seo";
 import "./globals.css";
-import { Analytics } from "@vercel/analytics/next";
-import { SpeedInsights } from "@vercel/speed-insights/next";
 
 const display = Space_Grotesk({
   subsets: ["latin"],
@@ -84,10 +82,6 @@ export default function RootLayout({
       </head>
       <body>
         {children}
-        {/* Vercel Web Analytics + Speed Insights (project-level toggles are on; the
-            scripts only ship when these components render). */}
-        <Analytics />
-        <SpeedInsights />
       </body>
     </html>
   );
